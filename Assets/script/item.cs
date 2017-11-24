@@ -21,8 +21,15 @@ public class item : MonoBehaviour {
                 player.GetComponent<player>().battery = 5;
             Destroy(gameObject);
         }
-        else
+        
+
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.CompareTag("enemy"))
         {
+            Debug.Log("inst");
             float item_y = Random.Range(transform.position.y + 1, transform.position.y + 5);
             float item_x = Random.Range(transform.position.x - 2.5f, transform.position.x + 2.5f);
 
@@ -31,6 +38,5 @@ public class item : MonoBehaviour {
             Instantiate(this.gameObject, itempos, transform.rotation);
             Destroy(gameObject);
         }
-
     }
 }
