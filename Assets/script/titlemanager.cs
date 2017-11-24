@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class titlemanager : MonoBehaviour {
 
@@ -12,8 +11,9 @@ public class titlemanager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetMouseButtonDown (0)) {
-			SceneManager.LoadScene ("game");
+		if (Input.GetMouseButtonDown (0) && !Fade_Out.fade_ok) {
+            Fade_Out.next = "game";
+            Fade_Out.fade_ok = true;
 		}
 	}
 }
